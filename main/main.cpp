@@ -32,6 +32,9 @@ void test_adc_dma(void *pvParameter) {
 		// Convert digital ADC raw array to iL(t) signal;
 		s0.calc_iL_t(&adc_buffer[0], &iL_t[0], n_samples);
 
+		// Remove voltage offset before RMS calculation
+		s0.dc_remove(&iL_t[0], n_samples);
+
 		// Find the RMS value from iL(t) signal
 		iL_rms = s0.calc_rms(&iL_t[0], n_samples);
 
