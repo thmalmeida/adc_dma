@@ -29,6 +29,9 @@ void test_adc_dma(void *pvParameter) {
 		// Read stream array from ADC using DMA;
 		adc0.stream_read(0, &adc_buffer[0], n_samples);
 
+		// First order filter
+		s0.filter(&adc_buffer[0], n_samples);
+
 		// Convert digital ADC raw array to iL(t) signal;
 		s0.calc_iL_t(&adc_buffer[0], &iL_t[0], n_samples);
 
