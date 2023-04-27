@@ -46,7 +46,7 @@ void test_adc_dma(void *pvParameter) {
 		printf("\n");
 
 		// print rms load current in Amperes
-		ESP_LOGI(TAG_ADC_DMA, "iL_rms:%.2lf A\n", iL_rms);
+		ESP_LOGI(TAG_ADC_DMA, "iL_rms:%.3lf A\n", iL_rms);
 
 		vTaskDelay(1000 / portTICK_PERIOD_MS);
 	}
